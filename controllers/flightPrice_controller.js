@@ -41,14 +41,3 @@ export const getPrices = async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch flight prices' });
   }
 }
-
-export const Mine = async (req, res) => {
-  try {
-    return res.json(true)
-
-  } catch (error) {
-
-    console.error('Error fetching flight prices:', error.message);
-    res.status(500).json({ error: 'Failed to fetch flight prices' });
-  }
-}

@@ -1,6 +1,4 @@
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
-puppeteer.use(StealthPlugin());
+import puppeteer from 'puppeteer';
 
 async function getFlightsFromPage(page) {
   try {

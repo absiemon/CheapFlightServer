@@ -14,6 +14,7 @@ export const getPrices = async (req, res) => {
       return res.json({maxPageSize: cachedData.size-1, result:data});
     }
     else {
+    console.log("controller line-17")
       const flights = await getFlightsResults(source, destination, departure, adults, childs);
       console.log(flights);
       cachedData.clear();

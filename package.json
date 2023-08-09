@@ -22,9 +22,7 @@
     "moment": "^2.29.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
-    "puppeteer": "^20.9.0",
-    "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer": "^19.7.2",
     "redis": "^4.6.7",
     "uuid": "^9.0.0"
   }

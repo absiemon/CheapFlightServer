@@ -6,8 +6,11 @@ export const getPrices = async (req, res) => {
   const {page} = req.query;
 
   try {
+    console.log("controller line-9")
     const data = cachedData.get(`${page}`);
+    console.log("controller line-11")
     if(data && cachedData.has(`${source}-${destination}-${departure}-${childs}-${adults}`)){
+    console.log("controller line-13")
       return res.json({maxPageSize: cachedData.size-1, result:data});
     }
     else {

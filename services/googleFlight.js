@@ -37,8 +37,8 @@ async function getFlightsFromPage(page) {
 
 async function getFlightsResults(source, destination, date, adults, childrens) {
   const browser = await puppeteer.launch({
-    headless: false, // if you want to see what the browser is doing, you need to set this option to "false"
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    headless: true, // if you want to see what the browser is doing, you need to set this option to "false"
+    // args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   try {
     console.log("Line-43")

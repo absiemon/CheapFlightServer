@@ -5,6 +5,7 @@ puppeteer.use(StealthPlugin());
 async function getFlightsFromPage(page) {
   try {
     await page.waitForSelector(".pIav2d");
+    console.log("Line-8")
     return await page.evaluate(() =>
       Array.from(document.querySelectorAll(".pIav2d")).map((el) => {
         const thumbnailString = el.querySelector(".EbY4Pc")?.getAttribute("style");
@@ -40,12 +41,14 @@ async function getFlightsResults(source, destination, date, adults, childrens) {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   try {
+    console.log("Line-43")
     const URL = `https://www.google.com/travel/flights?tfs=CBwQARoOagwIAhIIL20vMGRsdjBAAUgBcAGCAQsI____________AZgBAg&hl=en-US&curr=INR`;
     const page = await browser.newPage();
     page.setViewport({
       width: 1280,
       height: 720,
     });
+    console.log("Line-50")
 
     page.setDefaultNavigationTimeout(60000);
     await page.goto(URL);
@@ -55,6 +58,8 @@ async function getFlightsResults(source, destination, date, adults, childrens) {
       const sourceInput = document.querySelector('input[aria-labelledby="i22"]');
       sourceInput.value = '';
     });
+    console.log("Line-60")
+
     await page.type('input[aria-labelledby="i22"]', source);
     await page.waitForTimeout(1000);
     await page.keyboard.press("ArrowDown"); // Select the first suggestion
@@ -63,6 +68,7 @@ async function getFlightsResults(source, destination, date, adults, childrens) {
     // Wait for the destination input to be visible and type the destination city
     await page.waitForTimeout(1000);
 
+    console.log("Line-70")
     await page.waitForSelector('input[aria-labelledby="i28"]');
     await page.type('input[aria-labelledby="i28"]', destination);
     await page.waitForTimeout(1000);
@@ -72,6 +78,7 @@ async function getFlightsResults(source, destination, date, adults, childrens) {
     await page.waitForTimeout(1000);
 
     // type "Leave date"
+    console.log("Line-80")
     await page.click('input[aria-label="Departure"]');
     await page.keyboard.type(date);
     await page.keyboard.press("Enter");
@@ -81,6 +88,7 @@ async function getFlightsResults(source, destination, date, adults, childrens) {
     await page.waitForTimeout(1000);
     await page.keyboard.press("Enter");
 
+    console.log("Line-90")
     // checking extra passengers
     console.log(typeof (adults), childrens)
     if (adults > 1 || childrens > 0) {
@@ -103,6 +111,7 @@ async function getFlightsResults(source, destination, date, adults, childrens) {
     await page.click(".TUT4y .VfPpkd-Jh9lGc");
     await page.waitForTimeout(1000);
     await page.keyboard.press("Enter");
+    console.log("Line-113")
 
     await page.waitForSelector(".zISZ5c");
 

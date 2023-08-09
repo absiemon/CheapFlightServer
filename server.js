@@ -19,7 +19,7 @@ app.use(bodyParser.json({
 app.use(morgan());
 app.disable('etag')
 
-const allowedOrigins = ['https://cheap-flight.vercel.app/'];
+const allowedOrigins = ['https://cheap-flight.vercel.app'];
 const corsOptions = {
     credentials: true,
     origin: allowedOrigins,
